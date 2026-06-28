@@ -11,7 +11,7 @@ const TRANSLATIONS = {
     hero_sub: "Command wrapped in silk. Control that feels like a caress.",
     hero_cta_primary: "Enter My World",
     hero_cta_secondary: "Read the Rules",
-    about_eyebrow: "The Goddess",
+    about_eyebrow: "The Miss",
     about_title: "Who is Selina?",
     about_body: "A master of quiet dominance — where power doesn't shout, it whispers and still makes knees weak. The art of the Soft Command: gentle in tone, velvet in delivery, completely inescapable in control.",
     rules_eyebrow: "Before You Proceed",
@@ -31,7 +31,7 @@ const TRANSLATIONS = {
     stat_discreet: "Discreet",
     stat_intensity: "Intensity",
     teaser_rules_desc: "Read before you proceed. My world has standards.",
-    teaser_services_desc: "Custom content, voice notes, calls, training, and more."
+    teaser_services_desc: "My voice in your ear. My standards in your day."
   },
   fr: {
     nav_home: "Accueil",

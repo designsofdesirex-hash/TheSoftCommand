@@ -4,33 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Soft Command | Obey Gently</title>
-  <meta name="description" content="Command wrapped in silk. Control that feels like a caress. The Soft Command by Goddess Selina.">
+  <meta name="description" content="Command wrapped in silk. Control that feels like a caress. The Soft Command by Miss Selina.">
   <meta name="theme-color" content="#080808">
   <meta property="og:title" content="The Soft Command | Obey Gently">
   <meta property="og:description" content="Quiet dominance, velvet power, and control wrapped in silk.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles-upgrade.css">
   <script src="assets/js/translations.js" defer></script>
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/instagram.js" defer></script>
 </head>
 <body>
-  <!-- Global Navigation -->
+
+  <!-- ═══════════════════════════════════
+       GLOBAL NAVIGATION
+  ═══════════════════════════════════ -->
   <nav id="main-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo nav-logo--wordmark" aria-label="Goddess Selina, The Soft Command">
-        <span class="nav-name cormorant gold-gradient-text">Goddess Selina</span>
+      <a href="index.html" class="nav-logo nav-logo--wordmark" aria-label="Miss Selina, The Soft Command">
+        <span class="nav-name cormorant gold-gradient-text">Miss Selina</span>
         <span class="nav-motto cinzel">Your new obsession.</span>
       </a>
 
       <ul class="nav-links">
-        <li><a href="index.html" data-i18n="nav_home" class="cinzel nav-link">Home</a></li>
-        <li><a href="rules.html" data-i18n="nav_rules" class="cinzel nav-link">Rules</a></li>
+        <li><a href="index.html"    data-i18n="nav_home"     class="cinzel nav-link">Home</a></li>
+        <li><a href="rules.html"    data-i18n="nav_rules"    class="cinzel nav-link">Rules</a></li>
         <li><a href="services.html" data-i18n="nav_services" class="cinzel nav-link">Services</a></li>
         <li><a href="tributes.html" data-i18n="nav_tributes" class="cinzel nav-link">Tributes</a></li>
-        <li><a href="gallery.html" data-i18n="nav_gallery" class="cinzel nav-link">Gallery</a></li>
-        <li><a href="contact.html" data-i18n="nav_contact" class="cinzel nav-link nav-link--cta">Apply</a></li>
+        <li><a href="gallery.html"  data-i18n="nav_gallery"  class="cinzel nav-link">Gallery</a></li>
+        <li><a href="contact.html"  data-i18n="nav_contact"  class="cinzel nav-link nav-link--cta">Apply</a></li>
       </ul>
 
       <div class="nav-controls">
@@ -43,11 +46,9 @@
             <button data-lang="es" class="cinzel">ES</button>
           </div>
         </div>
-
         <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle theme">
           <span class="theme-icon">◑</span>
         </button>
-
         <button id="hamburger" class="hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
@@ -55,16 +56,18 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu Overlay -->
+  <!-- ═══════════════════════════════════
+       MOBILE MENU
+  ═══════════════════════════════════ -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <button class="mobile-menu__close" id="mobile-close">✕</button>
     <nav class="mobile-menu__nav">
-      <a href="index.html" data-i18n="nav_home" class="cinzel mobile-link">Home</a>
-      <a href="rules.html" data-i18n="nav_rules" class="cinzel mobile-link">Rules</a>
+      <a href="index.html"    data-i18n="nav_home"     class="cinzel mobile-link">Home</a>
+      <a href="rules.html"    data-i18n="nav_rules"    class="cinzel mobile-link">Rules</a>
       <a href="services.html" data-i18n="nav_services" class="cinzel mobile-link">Services</a>
       <a href="tributes.html" data-i18n="nav_tributes" class="cinzel mobile-link">Tributes</a>
-      <a href="gallery.html" data-i18n="nav_gallery" class="cinzel mobile-link">Gallery</a>
-      <a href="contact.html" data-i18n="nav_contact" class="cinzel mobile-link mobile-link--cta">Apply</a>
+      <a href="gallery.html"  data-i18n="nav_gallery"  class="cinzel mobile-link">Gallery</a>
+      <a href="contact.html"  data-i18n="nav_contact"  class="cinzel mobile-link mobile-link--cta">Apply</a>
     </nav>
     <div class="mobile-menu__footer">
       <p class="cinzel gold-gradient-text" data-i18n="footer_tagline">Obey gently.</p>
@@ -72,67 +75,187 @@
   </div>
 
   <main>
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-      <canvas id="hero-canvas"></canvas>
-      <div class="hero-gradient-pulse"></div>
-      <div class="hero-presence" aria-hidden="true">
-        <img src="New Logo/icon of variation 1.png" alt="" width="1024" height="1024" decoding="async" fetchpriority="high">
+
+    <!-- ═══════════════════════════════════
+         HERO
+    ═══════════════════════════════════ -->
+    <section class="hero" id="hero" aria-label="Hero — The Soft Command">
+
+      <!-- Shared particle canvas -->
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+      <!-- ── LEFT: IMAGE PANEL ─────────────────────────── -->
+      <div class="hero-image-panel" aria-hidden="true">
+        <div class="hero-presence">
+          <img src="New Logo/icon of variation 1.webp"
+               alt=""
+               width="1024" height="1024"
+               decoding="async" fetchpriority="high">
+        </div>
       </div>
-      
-      <div class="hero-content reveal">
-        <p class="hero-eyebrow cinzel gold-gradient-text" data-i18n="hero_eyebrow">The Soft Command</p>
-        
-        <div class="crown-divider">
-          <svg width="60" height="30" viewBox="0 0 60 30" fill="none">
-            <path d="M5,25 L15,5 L30,18 L45,5 L55,25 Z" stroke="#D4AF37" stroke-width="1" fill="none"/>
-            <circle cx="5" cy="25" r="2" fill="#D4AF37"/>
-            <circle cx="30" cy="18" r="2" fill="#D4AF37"/>
-            <circle cx="55" cy="25" r="2" fill="#D4AF37"/>
+
+      <!-- ── RIGHT: CONTENT PANEL ─────────────────────── -->
+      <div class="hero-content-panel">
+
+        <!-- Decorative frame box -->
+        <div class="hero-frame">
+
+          <!-- Frame ornaments -->
+          <div class="frame-top-rule"    aria-hidden="true"></div>
+          <div class="frame-bottom-rule" aria-hidden="true"></div>
+
+          <!-- Corner brackets (SVG) -->
+          <svg class="corner corner--tl" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M28,1 L2,1 L1,2 L1,28" stroke="#D4AF37" stroke-width="0.8" opacity="0.65"/>
+            <circle cx="1" cy="1" r="1.8" fill="#D4AF37" opacity="0.7"/>
           </svg>
+          <svg class="corner corner--tr" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M28,1 L2,1 L1,2 L1,28" stroke="#D4AF37" stroke-width="0.8" opacity="0.65"/>
+            <circle cx="1" cy="1" r="1.8" fill="#D4AF37" opacity="0.7"/>
+          </svg>
+          <svg class="corner corner--bl" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M28,1 L2,1 L1,2 L1,28" stroke="#D4AF37" stroke-width="0.8" opacity="0.65"/>
+            <circle cx="1" cy="1" r="1.8" fill="#D4AF37" opacity="0.7"/>
+          </svg>
+          <svg class="corner corner--br" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M28,1 L2,1 L1,2 L1,28" stroke="#D4AF37" stroke-width="0.8" opacity="0.65"/>
+            <circle cx="1" cy="1" r="1.8" fill="#D4AF37" opacity="0.7"/>
+          </svg>
+
+          <!-- Content -->
+          <div class="hero-content">
+
+            <!-- Eyebrow -->
+            <div class="hero-eyebrow cinzel-decorative gold-gradient-text fade-up d1">
+              <span class="eyebrow-line"></span>
+              <span class="eyebrow-star">✦</span>
+              <span class="eyebrow-text">MISS SELINA</span>
+              <span class="eyebrow-star">✦</span>
+              <span class="eyebrow-line"></span>
+            </div>
+
+            <!-- Crown -->
+            <div class="crown-divider fade-up d2" aria-hidden="true">
+              <svg width="108" height="50" viewBox="0 0 112 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cg" x1="0" y1="0" x2="112" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%"   stop-color="#B8960C" stop-opacity="0.55"/>
+                    <stop offset="40%"  stop-color="#D4AF37"/>
+                    <stop offset="60%"  stop-color="#F9F295"/>
+                    <stop offset="100%" stop-color="#B8960C" stop-opacity="0.55"/>
+                  </linearGradient>
+                </defs>
+                <path d="M8,44 L24,10 L56,32 L88,10 L104,44 Z"
+                      stroke="url(#cg)" stroke-width="0.75" fill="none"
+                      stroke-linejoin="round" stroke-linecap="round"/>
+                <line x1="8" y1="44" x2="104" y2="44" stroke="url(#cg)" stroke-width="0.5" opacity="0.40"/>
+                <circle cx="8"   cy="44" r="2.4" fill="#D4AF37" opacity="0.82"/>
+                <circle cx="56"  cy="32" r="2.7" fill="#F9F295" opacity="0.92"/>
+                <circle cx="104" cy="44" r="2.4" fill="#D4AF37" opacity="0.82"/>
+                <circle cx="24"  cy="10" r="1.4" fill="#D4AF37" opacity="0.68"/>
+                <circle cx="88"  cy="10" r="1.4" fill="#D4AF37" opacity="0.68"/>
+                <g class="crown-sparkle">
+                  <line x1="56" y1="4"  x2="56" y2="12" stroke="#F9F295" stroke-width="0.7" opacity="0.88"/>
+                  <line x1="52" y1="8"  x2="60" y2="8"  stroke="#F9F295" stroke-width="0.7" opacity="0.88"/>
+                  <line x1="53" y1="5"  x2="59" y2="11" stroke="#F9F295" stroke-width="0.4" opacity="0.40"/>
+                  <line x1="59" y1="5"  x2="53" y2="11" stroke="#F9F295" stroke-width="0.4" opacity="0.40"/>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="hero-headline cinzel-decorative gold-gradient-text fade-up d3" data-i18n="hero_headline">
+              <span class="hl-soft">Obey</span>
+              <span class="hl-command">Gently.</span>
+            </h1>
+
+            <!-- Rule -->
+            <div class="hero-rule fade-up d4" aria-hidden="true"></div>
+
+            <!-- Subtitle -->
+            <p class="hero-sub jost fade-up d4" data-i18n="hero_sub">
+              Command wrapped in silk.<br>Control that feels like a caress.
+            </p>
+
+            <!-- CTAs -->
+            <div class="hero-ctas fade-up d5">
+              <a href="rules.html" class="btn--primary" data-i18n="hero_cta_primary">
+                Enter My World <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+              <a href="rules.html" class="btn--ghost" data-i18n="hero_cta_secondary">
+                Read the Rules <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <!-- Trust row -->
+            <div class="hero-trust fade-up d6" aria-label="Details">
+              <span class="trust-star">✦</span>
+              <span class="trust-item cinzel">@The.Soft.Command</span>
+              <span class="trust-star">✦</span>
+            </div>
+            
+            <!-- Bottom Ornament -->
+            <div class="hero-ornament fade-up d6">
+               <svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M10,12 L50,12" stroke="#D4AF37" stroke-width="0.5" stroke-opacity="0.6"/>
+                 <path d="M70,12 L110,12" stroke="#D4AF37" stroke-width="0.5" stroke-opacity="0.6"/>
+                 <path d="M60,4 C63,8 65,10 65,12 C65,14 63,16 60,20 C57,16 55,14 55,12 C55,10 57,8 60,4 Z" fill="#D4AF37" fill-opacity="0.8"/>
+                 <circle cx="60" cy="12" r="1.5" fill="#080808"/>
+                 <path d="M52,12 C52,9 49,9 49,12 C49,15 52,15 52,12 Z" stroke="#D4AF37" stroke-width="0.5" stroke-opacity="0.8"/>
+                 <path d="M68,12 C68,9 71,9 71,12 C71,15 68,15 68,12 Z" stroke="#D4AF37" stroke-width="0.5" stroke-opacity="0.8"/>
+               </svg>
+            </div>
+
+          </div><!-- /.hero-content -->
+        </div><!-- /.hero-frame -->
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll fade-up d7" aria-hidden="true">
+          <div class="scroll-track">
+            <div class="scroll-thumb"></div>
+          </div>
+          <span class="scroll-label cinzel">Scroll</span>
         </div>
-        
-        <h1 class="hero-headline cormorant gold-gradient-text" data-i18n="hero_headline">
-          Obey Gently.
-        </h1>
-        
-        <p class="hero-sub jost" data-i18n="hero_sub">
-          Command wrapped in silk. Control that feels like a caress.
-        </p>
-        
-        <div class="hero-ctas">
-          <a href="rules.html" class="btn btn--primary cinzel" data-i18n="hero_cta_primary">Enter My World</a>
-          <a href="rules.html" class="btn btn--ghost cinzel" data-i18n="hero_cta_secondary">Read the Rules</a>
-        </div>
-      </div>
-      
-      <div class="hero-scroll-indicator">
-        <span class="cinzel">Scroll</span>
-        <div class="scroll-line"></div>
-      </div>
+
+      </div><!-- /.hero-content-panel -->
+
     </section>
 
-    <!-- About Selina Section -->
-    <section class="about-section reveal" id="about">
+
+    <!-- ═══════════════════════════════════
+         ABOUT SELINA
+    ═══════════════════════════════════ -->
+    <section class="about-section reveal" id="about" style="padding-bottom: 2rem;">
       <div class="section-inner">
-        <p class="section-eyebrow cinzel gold-gradient-text" data-i18n="about_eyebrow">The Goddess</p>
+        <p class="section-eyebrow cinzel gold-gradient-text" data-i18n="about_eyebrow">The Miss</p>
         <h2 class="section-title cormorant" data-i18n="about_title">Who is Selina?</h2>
-        
+
         <div class="about-grid">
+
+          <!-- Portrait -->
           <div class="about-illustration stagger-children">
-            <div class="selina-cameo selina-cameo--portrait" aria-label="Goddess Selina portrait">
-              <img src="Images/Showcase/selina-portrait-oval.webp" alt="Goddess Selina in a gold oval portrait" class="selina-cameo__img" width="441" height="720" loading="eager" decoding="async" fetchpriority="low"/>
+            <div class="selina-cameo selina-cameo--portrait"
+                 aria-label="Miss Selina portrait">
+              <img src="New Logo/Icon variation 2.webp"
+                   alt="Miss Selina in a gold oval portrait"
+                   class="selina-cameo__img"
+                   width="441" height="720"
+                   loading="eager" decoding="async" fetchpriority="low"/>
             </div>
           </div>
-          
+
+          <!-- Copy -->
           <div class="about-text stagger-children">
             <p class="about-body jost" data-i18n="about_body">
-              A master of quiet dominance — where power doesn't shout, it whispers 
-              and still makes knees weak.
+              A master of quiet dominance — where power doesn't shout,
+              it whispers and still makes knees weak.
             </p>
+
+            <!-- Elevated blockquote: oversized Cormorant drop-cap via CSS -->
             <blockquote class="about-quote cormorant gold-gradient-text">
-              "Command wrapped in silk.<br>Control that feels like a caress."
+              Command wrapped in silk.<br>Control that feels like a caress.
             </blockquote>
+
             <div class="about-attributes">
               <div class="attribute-pill cinzel">Soft Domme</div>
               <div class="attribute-pill cinzel">Gentle Femdom</div>
@@ -140,112 +263,192 @@
               <div class="attribute-pill cinzel">The Slow Burn</div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Stats Counter Section -->
-    <section class="stats-section">
-      <div class="stats-grid">
-        <div class="stat-item reveal">
-          <span class="stat-number cormorant gold-gradient-text" data-target="500">0</span>
-          <span class="stat-suffix cormorant gold-gradient-text">+</span>
-          <p class="stat-label cinzel" data-i18n="stat_subs">Devoted</p>
+
+    <!-- ═══════════════════════════════════
+         REVIEWS CAROUSEL
+    ═══════════════════════════════════ -->
+    <section class="reviews-section reveal" id="reviews" style="padding-top: 2rem; padding-bottom: 2rem;">
+      <div class="reviews-inner">
+        <p class="section-eyebrow cinzel gold-gradient-text" style="text-align: center;">Whispers of Submission</p>
+        <h2 class="section-title cormorant" style="text-align: center; margin-bottom: 2rem;">Anonymous Confessions</h2>
+        
+        <div class="reviews-carousel">
+          <div class="reviews-track">
+            
+            <!-- Original Set -->
+            <div class="review-card">
+              <div class="review-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="review-text cormorant">"I didn't realize how much I needed someone to take the reins until I started talking to you. You have this incredibly calming presence, but when you give an instruction, there’s no question about obeying. It’s exactly the peace I was looking for."</p>
+              <p class="review-author cinzel">— Anonymous Devotee</p>
+            </div>
+            
+            <div class="review-card">
+              <div class="review-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="review-text cormorant">"I've never experienced anything like your dynamic. You don't have to be loud or aggressive to be completely in charge. Earning your approval has honestly become the highlight of my week."</p>
+              <p class="review-author cinzel">— Loyal Subject</p>
+            </div>
+            
+            <div class="review-card">
+              <div class="review-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="review-text cormorant">"It's hard to explain, but just seeing a message from you makes me drop whatever I'm doing. You're so elegant and soft, but you see right through me. Submitting to you feels completely natural."</p>
+              <p class="review-author cinzel">— Grateful</p>
+            </div>
+            
+            <div class="review-card">
+              <div class="review-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="review-text cormorant">"I've been in other dynamics before, but nothing compares to this. You actually take the time to understand my psychology. Paying tribute doesn't feel like a transaction, it feels like a privilege."</p>
+              <p class="review-author cinzel">— Owned</p>
+            </div>
+            
+            <!-- Duplicated Set for Infinite Loop -->
+            <div class="review-card">
+              <div class="review-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="review-text cormorant">"I didn't realize how much I needed someone to take the reins until I started talking to you. You have this incredibly calming presence, but when you give an instruction, there’s no question about obeying. It’s exactly the peace I was looking for."</p>
+              <p class="review-author cinzel">— Anonymous Devotee</p>
+            </div>
+            
+            <div class="review-card">
+              <div class="review-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="review-text cormorant">"I've never experienced anything like your dynamic. You don't have to be loud or aggressive to be completely in charge. Earning your approval has honestly become the highlight of my week."</p>
+              <p class="review-author cinzel">— Loyal Subject</p>
+            </div>
+            
+            <div class="review-card">
+              <div class="review-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="review-text cormorant">"It's hard to explain, but just seeing a message from you makes me drop whatever I'm doing. You're so elegant and soft, but you see right through me. Submitting to you feels completely natural."</p>
+              <p class="review-author cinzel">— Grateful</p>
+            </div>
+            
+            <div class="review-card">
+              <div class="review-stars">✦ ✦ ✦ ✦ ✦</div>
+              <p class="review-text cormorant">"I've been in other dynamics before, but nothing compares to this. You actually take the time to understand my psychology. Paying tribute doesn't feel like a transaction, it feels like a privilege."</p>
+              <p class="review-author cinzel">— Owned</p>
+            </div>
+
+          </div>
         </div>
-        <div class="stat-item reveal">
-          <span class="stat-number cormorant gold-gradient-text" data-target="100">0</span>
-          <span class="stat-suffix cormorant gold-gradient-text">%</span>
-          <p class="stat-label cinzel" data-i18n="stat_discreet">Discreet</p>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-number cormorant gold-gradient-text" data-target="24">0</span>
-          <span class="stat-suffix cormorant gold-gradient-text">/7</span>
-          <p class="stat-label cinzel" data-i18n="stat_intensity">Intensity</p>
+
+        <div class="reviews-cta">
+          <p class="jost" style="font-size: 1.1rem; color: rgba(240,235,225,0.8); margin-bottom: 1.5rem; text-align: center;">
+            Some of you already know what this feels like. The rest of you are starting to.
+          </p>
+          <a href="services.html" class="btn btn--primary cinzel">See What I Offer</a>
         </div>
       </div>
     </section>
 
-    <!-- Service Teasers -->
-    <section class="teasers-section">
+
+    <!-- ═══════════════════════════════════
+         SERVICE TEASERS
+    ═══════════════════════════════════ -->
+    <section class="teasers-section" style="padding-top: 2rem;">
       <div class="teasers-grid stagger-children">
+
         <a href="rules.html" class="teaser-card reveal">
           <div class="teaser-card__icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <path d="M4,24 L10,8 L16,16 L22,8 L28,24 Z" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
+            <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
+              <path d="M4,24 L10,8 L16,16 L22,8 L28,24 Z"
+                    stroke="#D4AF37" stroke-width="1" fill="none"
+                    stroke-linejoin="round" stroke-linecap="round"/>
             </svg>
           </div>
           <h3 class="teaser-card__title cormorant" data-i18n="nav_rules">Rules of Engagement</h3>
-          <p class="teaser-card__desc jost" data-i18n="teaser_rules_desc">Read before you proceed. My world has standards.</p>
-          <span class="teaser-card__cta cinzel">→ Read the Rules</span>
+          <p class="teaser-card__desc jost" data-i18n="teaser_rules_desc">
+            Read before you proceed. My world has standards.
+          </p>
+          <span class="teaser-card__cta cinzel">
+            Read the Rules <span class="cta-arrow" aria-hidden="true">→</span>
+          </span>
         </a>
-        
+
         <a href="services.html" class="teaser-card reveal">
           <div class="teaser-card__icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <path d="M16,4 L28,14 L16,28 L4,14 Z" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
+            <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
+              <path d="M16,4 L28,14 L16,28 L4,14 Z"
+                    stroke="#D4AF37" stroke-width="1" fill="none"
+                    stroke-linejoin="round" stroke-linecap="round"/>
             </svg>
           </div>
           <h3 class="teaser-card__title cormorant" data-i18n="nav_services">The Menu</h3>
-          <p class="teaser-card__desc jost" data-i18n="teaser_services_desc">Custom content, voice notes, calls, training, and more.</p>
-          <span class="teaser-card__cta cinzel">→ View Services</span>
+          <p class="teaser-card__desc jost" data-i18n="teaser_services_desc">
+            My voice in your ear. My standards in your day.
+          </p>
+          <span class="teaser-card__cta cinzel">
+            View Services <span class="cta-arrow" aria-hidden="true">→</span>
+          </span>
         </a>
+
       </div>
     </section>
 
-    <!-- Instagram Live Feed Section -->
-    <section class="instagram-section reveal" id="instagram-feed">
-      <div class="section-inner">
-        <p class="section-eyebrow cinzel gold-gradient-text">Live from the Kingdom</p>
-        <h2 class="section-title cormorant">@the.soft.command</h2>
-        <p class="section-sub jost">Follow my world in real time.</p>
+
+    <!-- ═══════════════════════════════════
+         INSTAGRAM CTA
+    ═══════════════════════════════════ -->
+    <section class="instagram-section reveal" id="instagram-feed" style="padding-top: 4rem; padding-bottom: 2rem;">
+      <div class="section-inner" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <p class="section-eyebrow cinzel gold-gradient-text" style="margin-bottom: 0;">Live from the Kingdom</p>
+        <h2 class="section-title cormorant" style="margin-bottom: 1.5rem;">@the.soft.command</h2>
         
-        <div class="ig-feed-grid" id="ig-feed-grid">
-          <div class="ig-post skeleton"></div>
-          <div class="ig-post skeleton"></div>
-          <div class="ig-post skeleton"></div>
-          <div class="ig-post skeleton"></div>
-          <div class="ig-post skeleton"></div>
-          <div class="ig-post skeleton"></div>
-        </div>
-        
-        <a href="https://www.instagram.com/the.soft.command/" 
-           target="_blank" rel="noopener" 
+        <a href="https://www.instagram.com/the.soft.command/"
+           target="_blank" rel="noopener"
            class="btn btn--ghost cinzel ig-follow-btn">
           Follow on Instagram
         </a>
       </div>
     </section>
 
-    <!-- Daily Quote -->
-    <section class="daily-quote-section reveal">
+
+    <!-- ═══════════════════════════════════
+         DAILY QUOTE
+    ═══════════════════════════════════ -->
+    <section class="daily-quote-section reveal" style="padding-top: 2rem;">
       <div class="section-inner">
-        <p class="section-eyebrow cinzel gold-gradient-text">Daily Wisdom</p>
+        <p class="section-eyebrow cinzel gold-gradient-text">My Word For Today</p>
         <div class="daily-quote-frame">
+          <!-- Bottom-right bracket element (top-left done via ::after) -->
+          <span class="quote-brackets-br" aria-hidden="true"></span>
+
           <span class="quote-ornament cormorant gold-gradient-text" aria-hidden="true">"</span>
           <blockquote class="daily-quote__text cormorant" id="daily-quote-text">
             <!-- Populated by JS -->
           </blockquote>
           <span class="quote-ornament quote-ornament--close cormorant gold-gradient-text" aria-hidden="true">"</span>
-          <cite class="daily-quote__author cinzel gold-gradient-text">— Goddess Selina</cite>
+          <cite class="daily-quote__author cinzel gold-gradient-text">— Miss Selina</cite>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- Global Footer -->
+
+  <!-- ═══════════════════════════════════
+       GLOBAL FOOTER
+  ═══════════════════════════════════ -->
   <footer class="site-footer">
-    <div class="footer-inner">
+    <div class="footer-wrapper">
+      <div class="footer-art reveal">
+        <img src="New Logo/Icon variation 3.webp" alt="Miss Selina" loading="lazy" decoding="async">
+      </div>
+      <div class="footer-inner">
       <div class="footer-brand">
         <p class="footer-kicker cinzel">The Soft Command</p>
-        <p class="footer-logo cormorant gold-gradient-text">Goddess Selina</p>
+        <p class="footer-logo cormorant gold-gradient-text">Miss Selina</p>
         <p class="footer-tagline jost">Your new obsession begins softly.</p>
       </div>
+
       <nav class="footer-links">
-        <a href="rules.html" data-i18n="nav_rules" class="cinzel footer-link">Rules</a>
+        <a href="rules.html"    data-i18n="nav_rules"    class="cinzel footer-link">Rules</a>
         <a href="services.html" data-i18n="nav_services" class="cinzel footer-link">Services</a>
         <a href="tributes.html" data-i18n="nav_tributes" class="cinzel footer-link">Tributes</a>
-        <a href="contact.html" data-i18n="nav_contact" class="cinzel footer-link">Apply</a>
+        <a href="contact.html"  data-i18n="nav_contact"  class="cinzel footer-link">Apply</a>
       </nav>
+
       <div class="footer-social">
         <a href="https://www.instagram.com/the.soft.command/" target="_blank" rel="noopener" class="social-link cinzel" aria-label="Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -255,47 +458,63 @@
           </svg>
           <span>@the.soft.command</span>
         </a>
+        <a href="https://www.instagram.com/the.soft.command.1/" target="_blank" rel="noopener" class="social-link cinzel" aria-label="Backup Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+          <span>@the.soft.command.1</span>
+        </a>
+        <a href="mailto:thesoftcommand39@gmail.com" class="social-link cinzel" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>Email</span>
+        </a>
       </div>
+
       <div class="footer-payments">
         <span class="cinzel payment-label">Discreet tributes via</span>
         <span class="payment-badge cinzel">PayPal</span>
         <span class="payment-badge cinzel">CashApp</span>
         <span class="payment-badge cinzel">Venmo</span>
       </div>
-      <a href="contact.html" class="btn btn--ghost cinzel footer-cta">Apply With Respect</a>
+
       <p class="footer-copy jost">© 2025 The Soft Command. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
-  <!-- SVG Marble Veins overlay (applied globally when marble theme is active, logic in main.js handles bg class, but veins SVG should be in body and controlled by CSS) -->
-  <svg id="marble-veins" class="marble-veins" viewBox="0 0 1000 1000" 
+
+  <!-- ═══════════════════════════════════
+       MARBLE VEINS SVG (theme: marble)
+  ═══════════════════════════════════ -->
+  <svg id="marble-veins" class="marble-veins" viewBox="0 0 1000 1000"
        preserveAspectRatio="xMidYMid slice"
-       xmlns="http://www.w3.org/2000/svg" style="display: none;">
+       xmlns="http://www.w3.org/2000/svg" style="display:none;">
     <defs>
       <linearGradient id="veinGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#F9F295" stop-opacity="0"/>
-        <stop offset="30%" stop-color="#D4AF37" stop-opacity="0.9">
+        <stop offset="0%"   stop-color="#F9F295" stop-opacity="0"/>
+        <stop offset="30%"  stop-color="#D4AF37" stop-opacity="0.9">
           <animate attributeName="offset" values="0.2;0.8;0.2" dur="6s" repeatCount="indefinite"/>
         </stop>
-        <stop offset="60%" stop-color="#F9F295" stop-opacity="0.6">
+        <stop offset="60%"  stop-color="#F9F295" stop-opacity="0.6">
           <animate attributeName="offset" values="0.5;1.0;0.5" dur="6s" repeatCount="indefinite"/>
         </stop>
         <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
       </linearGradient>
-      <filter id="veinBlur">
-        <feGaussianBlur stdDeviation="0.8"/>
-      </filter>
+      <filter id="veinBlur"><feGaussianBlur stdDeviation="0.8"/></filter>
     </defs>
-    
     <g class="vein-group vein-primary">
-      <path d="M0,180 Q150,160 280,200 T520,170 Q680,145 750,220 T1000,190" 
+      <path d="M0,180 Q150,160 280,200 T520,170 Q680,145 750,220 T1000,190"
             stroke="url(#veinGlow)" stroke-width="1.5" fill="none" filter="url(#veinBlur)"/>
       <path d="M0,450 Q200,420 350,480 T600,440 Q800,410 900,470 T1000,450"
             stroke="url(#veinGlow)" stroke-width="1.2" fill="none" filter="url(#veinBlur)"/>
       <path d="M0,720 Q180,700 300,740 Q450,780 550,720 T800,730 Q900,740 1000,710"
             stroke="url(#veinGlow)" stroke-width="1.8" fill="none" filter="url(#veinBlur)"/>
     </g>
-    
     <g class="vein-group vein-secondary">
       <path d="M120,0 Q140,150 100,300 Q80,400 130,520 T110,700 Q100,850 140,1000"
             stroke="#D4AF37" stroke-width="0.6" fill="none" opacity="0.5"/>
@@ -306,7 +525,6 @@
       <path d="M850,0 Q870,200 830,380 T860,600 Q880,780 840,1000"
             stroke="#D4AF37" stroke-width="0.7" fill="none" opacity="0.45"/>
     </g>
-    
     <g class="vein-group vein-micro">
       <path d="M200,180 Q250,210 280,195 T320,215" stroke="#F9F295" stroke-width="0.3" fill="none" opacity="0.3"/>
       <path d="M520,450 Q580,435 620,460 T680,445" stroke="#D4AF37" stroke-width="0.3" fill="none" opacity="0.25"/>
@@ -314,12 +532,10 @@
       <path d="M740,300 Q800,285 830,310 T880,295" stroke="#D4AF37" stroke-width="0.3" fill="none" opacity="0.2"/>
     </g>
   </svg>
-  
+
   <style>
-    /* CSS to show marble veins only when body has marble-bg class */
-    body.marble-bg #marble-veins {
-      display: block !important;
-    }
+    body.marble-bg #marble-veins { display: block !important; }
   </style>
+
 </body>
 </html>

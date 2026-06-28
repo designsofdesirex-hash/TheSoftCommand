@@ -188,96 +188,72 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 6. Hero Canvas Particles
-  const canvas = document.getElementById('hero-canvas');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    const particles = [];
-    let animId;
-    let running = false;
-    let lastFrame = 0;
-    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-    const frameInterval = isCoarsePointer ? 1000 / 30 : 1000 / 60;
-    const particleCount = isCoarsePointer ? 42 : 60;
+  (function () {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    const ctx    = canvas.getContext('2d');
+    let W, H, particles = [];
+    const GOLD   = [212,175,55];
+    const GOLD_L = [249,242,149];
+    const N      = 60;
 
     function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.3,
-        speedY: (Math.random() - 0.5) * 0.3,
-        opacity: Math.random() * 0.6 + 0.2,
-        pulse: Math.random() * Math.PI * 2,
-      });
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
     }
 
-    function draw(now = 0) {
-      if (!running) return;
-      if (now - lastFrame < frameInterval) {
-        animId = requestAnimationFrame(draw);
-        return;
-      }
-      lastFrame = now;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const color = '#D4AF37'; // Gold for both themes
+    function mk() {
+      const lt = Math.random() < 0.25;
+      const [r,g,b] = lt ? GOLD_L : GOLD;
+      return {
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.1 + 0.3,
+        vx: (Math.random() - 0.5) * 0.16,
+        vy: -(Math.random() * 0.22 + 0.07),
+        baseA: Math.random() * 0.40 + 0.08,
+        phase: Math.random() * Math.PI * 2,
+        spd:   Math.random() * 0.007 + 0.003,
+        col:   `${r},${g},${b}`,
+        life:  Math.random(),
+      };
+    }
+
+    let t = 0;
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      t += 0.016;
       particles.forEach(p => {
-        p.pulse += 0.02;
-        p.opacity = 0.3 + Math.sin(p.pulse) * 0.25;
-        p.x += p.speedX;
-        p.y += p.speedY;
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
+        p.x += p.vx + Math.sin(t * 0.38 + p.phase) * 0.07;
+        p.y += p.vy;
+        p.life += 0.0035;
+        const a = Math.sin(p.life * Math.PI) * p.baseA;
+        const s = 1 + 0.20 * Math.sin(t * p.spd * 60 + p.phase);
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = color;
-        ctx.globalAlpha = p.opacity;
+        ctx.arc(p.x, p.y, p.r * s, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.col},${Math.max(0,a)})`;
         ctx.fill();
+        if (p.r > 1.1 && a > 0.22) {
+          const sz = p.r * 2.6 * s;
+          ctx.strokeStyle = `rgba(${p.col},${a * 0.35})`;
+          ctx.lineWidth = 0.4;
+          ctx.beginPath();
+          ctx.moveTo(p.x-sz,p.y); ctx.lineTo(p.x+sz,p.y);
+          ctx.moveTo(p.x,p.y-sz); ctx.lineTo(p.x,p.y+sz);
+          ctx.stroke();
+        }
+        if (p.y < -8 || p.life >= 1) Object.assign(p, mk(), {y: H+4, life: 0});
       });
-      ctx.globalAlpha = 1;
-      if (!document.hidden) animId = requestAnimationFrame(draw);
+      requestAnimationFrame(draw);
     }
 
-    function startCanvas() {
-      if (running) return;
-      running = true;
-      animId = requestAnimationFrame(draw);
-    }
-
-    function stopCanvas() {
-      running = false;
-      cancelAnimationFrame(animId);
-    }
-
-    const heroObserver = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        startCanvas();
-      } else {
-        stopCanvas();
-      }
-    });
-    heroObserver.observe(document.getElementById('hero'));
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        stopCanvas();
-      } else if (document.getElementById('hero')?.getBoundingClientRect().bottom > 0) {
-        startCanvas();
-      }
-    });
-
+    window.addEventListener('resize', resize);
+    resize();
+    particles = Array.from({length: N}, mk);
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      startCanvas();
+      draw();
     }
-  }
+  })();
 
   // 7. Rules Carousel
   const wrapper = document.getElementById('slides-wrapper');
@@ -335,12 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (formSection) formSection.hidden = false;
   }
 
-  if (localStorage.getItem('sc-rules-acknowledged') === 'true') {
-    revealApplicationForm();
-  }
-
   confirmRulesBtn?.addEventListener('click', () => {
-    localStorage.setItem('sc-rules-acknowledged', 'true');
     revealApplicationForm();
   });
 
@@ -359,7 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    localStorage.setItem('sc-rules-acknowledged', 'true');
     applicationForm.hidden = true;
     formSuccess?.removeAttribute('hidden');
   });
