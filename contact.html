@@ -12,6 +12,12 @@
   <link rel="stylesheet" href="assets/css/styles-upgrade.css">
   <script src="assets/js/translations.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <style>
+    /* Tally embed — blends into the dark page */
+    .tally-embed-wrapper { width: 100%; min-height: 500px; }
+    .tally-embed-wrapper iframe { border: none; width: 100%; color-scheme: dark; }
+    .tally-embed-wrapper iframe[height] { transition: height 0.3s ease; }
+  </style>
 </head>
 <body>
   <!-- Global Navigation -->
@@ -87,84 +93,51 @@
         <div class="form-wrapper reveal">
           <div class="form-header">
             <div class="ornament-line"></div>
-            <p class="cinzel gold-gradient-text form-header__sub">Your Introduction</p>
+            <p class="cinzel gold-gradient-text form-header__sub">Formal Submission</p>
             <div class="ornament-line"></div>
           </div>
+          <p class="jost" style="text-align: center; opacity: 0.6; font-size: 0.9rem; margin-bottom: 2rem;">(Please allow a few moments for the form to load)</p>
 
-          <form class="application-form" id="application-form" novalidate>
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="field-name" class="cinzel form-label">Name or Alias *</label>
-                <input type="text" id="field-name" name="name" required class="form-input jost" placeholder="How should Selina address you?">
-              </div>
-
-              <div class="form-group">
-                <label for="field-handle" class="cinzel form-label">Social Handle</label>
-                <input type="text" id="field-handle" name="handle" class="form-input jost" placeholder="@yourhandle and platform">
-              </div>
-            </div>
-
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="field-interest" class="cinzel form-label">Interest *</label>
-                <select id="field-interest" name="interest" required class="form-select cinzel">
-                  <option value="" disabled selected>Select a service</option>
-                  <option value="voice-note">Voice Note</option>
-                  <option value="custom-photo">Custom Photos</option>
-                  <option value="custom-video">Custom Videos</option>
-                  <option value="gm-gn">GM / GN Messages</option>
-                  <option value="tasks">Tasks & Accountability</option>
-                  <option value="live-call">Live Call</option>
-                  <option value="training">Training / Dynamic</option>
-                  <option value="tribute">Tribute Only</option>
-                  <option value="custom">Custom Request</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="field-experience" class="cinzel form-label">Experience</label>
-                <select id="field-experience" name="experience" class="form-select cinzel">
-                  <option value="" disabled selected>Select one</option>
-                  <option value="new">New / No experience</option>
-                  <option value="curious">Curious and learning</option>
-                  <option value="some">Some experience</option>
-                  <option value="experienced">Experienced</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="field-intro" class="cinzel form-label">Introduction *</label>
-              <textarea id="field-intro" name="intro" required rows="6" class="form-textarea jost" placeholder="Tell me who you are, what you seek, and why you believe you belong in The Soft Command. Be genuine."></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="field-tribute" class="cinzel form-label">Tribute Offering</label>
-              <select id="field-tribute" name="tribute" class="form-select cinzel">
-                <option value="">No tribute at this time</option>
-                <option value="coffee">Coffee Tribute - $10</option>
-                <option value="goodgirl">Good Girl Tribute - $25</option>
-                <option value="Miss">Miss Tribute - $50</option>
-                <option value="devotion">Devotion Tribute - $100+</option>
-              </select>
-            </div>
-
-            <div class="form-group form-group--checkbox">
-              <label class="checkbox-label jost">
-                <input type="checkbox" id="field-rules-agree" name="rulesAgree" required>
-                <span>I have read, understood, and agree to the <a href="rules.html" class="gold-gradient-text">Rules of Engagement</a>.</span>
-              </label>
-            </div>
-
-            <button type="submit" class="btn btn--primary btn--full cinzel" id="submit-btn">Submit Application</button>
-            <p class="form-note jost">This demo stores no message and sends no email yet. Connect a Formspree endpoint when you are ready to receive applications.</p>
-          </form>
-
-          <div class="form-success" id="form-success" hidden>
-            <div class="success-ornament">SC</div>
-            <h3 class="cormorant gold-gradient-text">Received.</h3>
-            <p class="jost">Your introduction has been noted. Applications are reviewed selectively.</p>
+          <!-- =====================================================
+               TALLY EMBED — HOW TO ACTIVATE:
+               1. Go to tally.so → build your form → click Share
+               2. Choose "Embed" → copy the Form ID from the URL
+                  e.g. tally.so/r/XXXXXXXX  →  your ID is XXXXXXXX
+               3. Replace YOUR_TALLY_FORM_ID below with that ID
+               4. Save and upload — done.
+               ===================================================== -->
+          <div class="tally-embed-wrapper">
+            <iframe
+              data-tally-src="https://tally.so/embed/LZgYkG?alignLeft=1&hideTitle=1&dynamicHeight=1"
+              loading="lazy"
+              width="100%"
+              height="600"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Apply to Serve — The Soft Command">
+            </iframe>
           </div>
+          <script>
+            var d = document,
+                w = "https://tally.so/widgets/embed.js",
+                v = function () {
+                  "undefined" != typeof Tally
+                    ? Tally.loadEmbeds()
+                    : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+                        e.src = e.dataset.tallySrc;
+                      });
+                };
+            if ("undefined" != typeof Tally) {
+              v();
+            } else if (d.querySelector('script[src="' + w + '"]') == null) {
+              var s = d.createElement("script");
+              s.src = w;
+              s.onload = v;
+              s.onerror = v;
+              d.body.appendChild(s);
+            }
+          </script>
         </div>
 
         <aside class="contact-side-card reveal">
@@ -209,13 +182,13 @@
           </svg>
           <span>@the.soft.command</span>
         </a>
-        <a href="https://www.instagram.com/the.soft.command.1/" target="_blank" rel="noopener" class="social-link cinzel" aria-label="Backup Instagram">
+        <a href="https://www.instagram.com/the.soft.command1/" target="_blank" rel="noopener" class="social-link cinzel" aria-label="Backup Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
             <circle cx="12" cy="12" r="4"/>
             <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
           </svg>
-          <span>@the.soft.command.1</span>
+          <span>@the.soft.command1</span>
         </a>
         <a href="mailto:thesoftcommand39@gmail.com" class="social-link cinzel" aria-label="Email">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -231,7 +204,7 @@
         <span class="payment-badge cinzel">CashApp</span>
         <span class="payment-badge cinzel">Venmo</span>
       </div>
-      <p class="footer-copy jost">© 2025 The Soft Command. All rights reserved.</p>
+      <p class="footer-copy jost">© 2026 The Soft Command. All rights reserved. · 18+ only · All interactions are between consenting adults.</p>
       </div>
     </div>
   </footer>
