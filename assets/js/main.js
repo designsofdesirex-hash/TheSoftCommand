@@ -419,3 +419,36 @@ function initCustomSelects() {
     if (!event.target.closest('.custom-select')) closeAll();
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 9. Age Gate Modal
+  if (!localStorage.getItem('ageVerified')) {
+    const ageGateHTML = `
+      <div id="age-gate-modal" class="age-gate-overlay">
+        <div class="age-gate-content reveal active">
+          <p class="section-eyebrow cinzel gold-gradient-text">Verification Required</p>
+          <h2 class="cormorant gold-gradient-text">Are you 18 or older?</h2>
+          <p class="jost">This website contains adult themes. By entering, you confirm you are at least 18 years of age and consent to viewing such content.</p>
+          <div class="age-gate-btns">
+            <button id="btn-over-18" class="btn btn--primary cinzel">I am 18+</button>
+            <button id="btn-under-18" class="btn btn--ghost cinzel">Exit</button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', ageGateHTML);
+    document.body.classList.add('no-scroll');
+
+    document.getElementById('btn-over-18').addEventListener('click', () => {
+      localStorage.setItem('ageVerified', 'true');
+      const modal = document.getElementById('age-gate-modal');
+      modal.classList.add('fade-out');
+      document.body.classList.remove('no-scroll');
+      setTimeout(() => modal.remove(), 600);
+    });
+
+    document.getElementById('btn-under-18').addEventListener('click', () => {
+      window.location.href = 'https://www.google.com';
+    });
+  }
+});
