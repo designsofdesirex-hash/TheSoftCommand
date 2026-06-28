@@ -240,38 +240,26 @@ button {
 }
 .nav-logo--wordmark {
   min-width: 0;
-  display: grid;
-  grid-template-columns: 44px minmax(0, auto);
-  column-gap: 0.78rem;
-  row-gap: 0.12rem;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
+  gap: 0.12rem;
   line-height: 1;
   position: relative;
-  padding: 0.2rem 0;
+  padding: 0.28rem 0 0.28rem 0.72rem;
 }
 .nav-logo--wordmark::before {
   content: "";
   position: absolute;
-  left: 52px;
+  left: 0;
   top: 0.38rem;
   bottom: 0.34rem;
   width: 1px;
   background: linear-gradient(180deg, transparent, rgba(249,242,149,0.72), rgba(212,175,55,0.28), transparent);
   box-shadow: 0 0 14px rgba(212,175,55,0.26);
 }
-.nav-logo__mark {
-  grid-row: 1 / span 2;
-  grid-column: 1;
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-  border-radius: 50%;
-  filter: drop-shadow(0 0 16px rgba(212,175,55,0.28));
-}
 .nav-name {
   display: block;
-  grid-column: 2;
   font-size: clamp(1.35rem, 4.3vw, 1.9rem);
   line-height: 0.9;
   white-space: nowrap;
@@ -280,7 +268,6 @@ button {
 }
 .nav-motto {
   display: flex;
-  grid-column: 2;
   align-items: center;
   gap: 0.42rem;
   color: rgba(240, 235, 225, 0.62);
@@ -508,12 +495,12 @@ button {
 .hero-presence {
   position: absolute;
   z-index: 2;
-  right: max(-8rem, -8vw);
-  bottom: max(-6rem, -8vw);
-  width: clamp(320px, 58vw, 660px);
+  right: clamp(1.5rem, 7vw, 9rem);
+  bottom: max(-5rem, -6vw);
+  width: clamp(300px, 38vw, 560px);
   aspect-ratio: 1;
   pointer-events: none;
-  opacity: 0.3;
+  opacity: 0.58;
   filter:
     drop-shadow(0 0 28px rgba(249,242,149,0.14))
     drop-shadow(0 42px 70px rgba(0,0,0,0.72));
@@ -2508,19 +2495,8 @@ body.is-scrolling.marble-bg::before {
   }
 
   .nav-logo--wordmark {
-    grid-template-columns: 38px minmax(0, auto);
-    max-width: 224px;
-    column-gap: 0.65rem;
-    padding-left: 0;
-  }
-
-  .nav-logo--wordmark::before {
-    left: 44px;
-  }
-
-  .nav-logo__mark {
-    width: 38px;
-    height: 38px;
+    max-width: 178px;
+    padding-left: 0.62rem;
   }
 
   .nav-name {
