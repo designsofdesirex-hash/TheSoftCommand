@@ -128,65 +128,20 @@
     .teaser-mosaic {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto;
-      gap: 4px;
-      padding: 0 4px 4px;
+      gap: 8px;
+      padding: 0 8px 8px;
       max-width: 1400px;
       margin: 0 auto;
     }
-
-    /* Span rules for the 8-frame layout:
-       Frame 1: tall left, rows 1-2
-       Frame 2: square top-center-left
-       Frame 3: square top-center-right
-       Frame 4: wide right, rows 1-2
-       Frame 5: wide left, row 3
-       Frame 6: square bottom-center-left
-       Frame 7: square bottom-center-right
-       Frame 8: tall right, rows 3-4 (or square) */
 
     .teaser-frame {
       position: relative;
       overflow: hidden;
       background: var(--bg-card);
       cursor: pointer;
+      aspect-ratio: 4 / 5;
+      border-radius: 2px;
     }
-
-    /* Aspect ratio containers */
-    .teaser-frame::before {
-      content: '';
-      display: block;
-      padding-top: 100%; /* square default */
-    }
-
-    .teaser-frame--tall::before   { padding-top: 210%; }
-    .teaser-frame--wide::before   { padding-top: 50%; }
-    .teaser-frame--portrait::before { padding-top: 130%; }
-
-    /* Grid placement */
-    .teaser-frame:nth-child(1) {
-      grid-column: 1;
-      grid-row: 1 / 3;
-    }
-    .teaser-frame:nth-child(1)::before { padding-top: 0; height: 100%; min-height: 500px; }
-
-    .teaser-frame:nth-child(2) { grid-column: 2; grid-row: 1; }
-    .teaser-frame:nth-child(3) { grid-column: 3; grid-row: 1; }
-
-    .teaser-frame:nth-child(4) {
-      grid-column: 4;
-      grid-row: 1 / 3;
-    }
-    .teaser-frame:nth-child(4)::before { padding-top: 0; height: 100%; min-height: 500px; }
-
-    .teaser-frame:nth-child(5) { grid-column: 2 / 4; grid-row: 2; }
-    .teaser-frame:nth-child(5)::before { padding-top: 48%; }
-
-    .teaser-frame:nth-child(6) { grid-column: 1 / 3; grid-row: 3; }
-    .teaser-frame:nth-child(6)::before { padding-top: 50%; }
-
-    .teaser-frame:nth-child(7) { grid-column: 3; grid-row: 3; }
-    .teaser-frame:nth-child(8) { grid-column: 4; grid-row: 3; }
 
     /* The visual fill inside each frame */
     .teaser-frame__fill {
@@ -215,7 +170,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center;
       transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
     }
     .teaser-frame:hover img { transform: scale(1.04); }
@@ -495,22 +450,9 @@
     @media (max-width: 860px) {
       .teaser-mosaic {
         grid-template-columns: repeat(2, 1fr);
-        gap: 3px;
-        padding: 0 3px 3px;
+        gap: 6px;
+        padding: 0 6px 6px;
       }
-
-      .teaser-frame:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
-      .teaser-frame:nth-child(1)::before { min-height: 340px; }
-      .teaser-frame:nth-child(2) { grid-column: 2; grid-row: 1; }
-      .teaser-frame:nth-child(3) { grid-column: 2; grid-row: 2; }
-      .teaser-frame:nth-child(4) { grid-column: 1; grid-row: 3; }
-      .teaser-frame:nth-child(4)::before { padding-top: 0; height: auto; min-height: auto; }
-      .teaser-frame:nth-child(5) { grid-column: 2; grid-row: 3; }
-      .teaser-frame:nth-child(5)::before { padding-top: 100%; }
-      .teaser-frame:nth-child(6) { grid-column: 1 / 3; grid-row: 4; }
-      .teaser-frame:nth-child(6)::before { padding-top: 50%; }
-      .teaser-frame:nth-child(7) { grid-column: 1; grid-row: 5; }
-      .teaser-frame:nth-child(8) { grid-column: 2; grid-row: 5; }
 
       .gallery-hero__title { font-size: clamp(3rem, 10vw, 5rem); }
     }
@@ -599,8 +541,7 @@
       <!-- Frame 1 — tall left -->
       <article class="teaser-frame" aria-label="Frame 1">
         <div class="teaser-frame__fill">
-          <!-- Drop your image here: <img src="Images/Gallery/frame-01.webp" alt="" loading="eager"> -->
-          <div class="teaser-frame__placeholder"></div>
+          <img src="Images/galerie1.png" alt="" loading="eager">
         </div>
         <div class="teaser-frame__overlay">
           <span class="teaser-frame__tag">Voice Ritual</span>
@@ -612,7 +553,7 @@
       <!-- Frame 2 — square top-center -->
       <article class="teaser-frame" aria-label="Frame 2">
         <div class="teaser-frame__fill">
-          <div class="teaser-frame__placeholder"></div>
+          <img src="Images/galerie2.jpg" alt="" loading="eager">
         </div>
         <div class="teaser-frame__overlay">
           <span class="teaser-frame__tag">Restraint</span>
@@ -624,7 +565,7 @@
       <!-- Frame 3 — square top-center -->
       <article class="teaser-frame" aria-label="Frame 3">
         <div class="teaser-frame__fill">
-          <div class="teaser-frame__placeholder"></div>
+          <img src="Images/galerie3.jpg" alt="" loading="eager">
         </div>
         <div class="teaser-frame__overlay">
           <span class="teaser-frame__tag">Presence</span>
@@ -636,7 +577,7 @@
       <!-- Frame 4 — tall right -->
       <article class="teaser-frame" aria-label="Frame 4">
         <div class="teaser-frame__fill">
-          <div class="teaser-frame__placeholder"></div>
+          <img src="Images/galerie4.png" alt="" loading="eager">
         </div>
         <div class="teaser-frame__overlay">
           <span class="teaser-frame__tag">Gold Standard</span>
@@ -648,7 +589,7 @@
       <!-- Frame 5 — wide center -->
       <article class="teaser-frame" aria-label="Frame 5">
         <div class="teaser-frame__fill">
-          <div class="teaser-frame__placeholder"></div>
+          <img src="Images/galerie5.jpg" alt="" loading="eager">
         </div>
         <div class="teaser-frame__overlay">
           <span class="teaser-frame__tag">The Soft Command</span>
@@ -658,29 +599,21 @@
       </article>
 
       <!-- Frame 6 — wide bottom-left (blurred/locked) -->
-      <article class="teaser-frame teaser-frame--blurred" aria-label="Frame 6 — private">
+      <article class="teaser-frame" aria-label="Frame 6">
         <div class="teaser-frame__fill">
-          <div class="teaser-frame__placeholder"></div>
-        </div>
-        <div class="teaser-frame__lock">
-          <span class="teaser-frame__lock-icon">◈</span>
-          <span class="teaser-frame__lock-label">Private</span>
+          <img src="Images/galerie6.jpg" alt="" loading="eager">
         </div>
         <div class="teaser-frame__overlay">
-          <span class="teaser-frame__tag">Access Required</span>
-          <p class="teaser-frame__caption">This one is not for everyone.</p>
+          <span class="teaser-frame__tag">Access Granted</span>
+          <p class="teaser-frame__caption">For those who know.</p>
         </div>
         <span class="teaser-frame__number">06</span>
       </article>
 
       <!-- Frame 7 — square bottom-center (blurred/locked) -->
-      <article class="teaser-frame teaser-frame--blurred" aria-label="Frame 7 — private">
+      <article class="teaser-frame" aria-label="Frame 7">
         <div class="teaser-frame__fill">
-          <div class="teaser-frame__placeholder"></div>
-        </div>
-        <div class="teaser-frame__lock">
-          <span class="teaser-frame__lock-icon">◈</span>
-          <span class="teaser-frame__lock-label">Private</span>
+          <img src="Images/galerie7.jpg" alt="" loading="eager">
         </div>
         <div class="teaser-frame__overlay">
           <span class="teaser-frame__tag">Devotion Only</span>
@@ -690,13 +623,9 @@
       </article>
 
       <!-- Frame 8 — square bottom-right (blurred/locked) -->
-      <article class="teaser-frame teaser-frame--blurred" aria-label="Frame 8 — private">
+      <article class="teaser-frame" aria-label="Frame 8">
         <div class="teaser-frame__fill">
-          <div class="teaser-frame__placeholder"></div>
-        </div>
-        <div class="teaser-frame__lock">
-          <span class="teaser-frame__lock-icon">◈</span>
-          <span class="teaser-frame__lock-label">Private</span>
+          <img src="Images/galerie8.jpg" alt="" loading="eager">
         </div>
         <div class="teaser-frame__overlay">
           <span class="teaser-frame__tag">The Rest</span>
